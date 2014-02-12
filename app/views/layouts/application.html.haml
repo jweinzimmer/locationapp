@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %title LocationApp
+    = stylesheet_link_tag 'gmaps4rails'
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    = yield :head
+  %body
+    %header
+      %nav.navbar.navbar-inverse{role: "navigation"}
+        %a.navbar-brand{href: "#"} Brand
+        %ul.nav.navbar-nav.navbar-right
+          %ul.nav.pull-right.navbar-nav
+            %li.active
+              - if user_signed_in? == true
+                %li= link_to current_user.full_name, edit_user_registration_path
+                %li
+                  = link_to "sign Out", signout_path
+              - else
+                %li= link_to "Register Now", new_user_registration_path
+                %li= link_to "Sign In", new_user_session_path
+    - if flash[:notice]
+      .alert.alert-success
+        %button.close{"data-dismiss" => "alert"} x
+        = flash[:notice]
+    - if flash[:alert]
+      .alert.alert-info
+        %button.close{"data-dismiss" => "alert"} x
+        = flash[:alert]
+    = yield
+    

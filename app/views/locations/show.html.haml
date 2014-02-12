@@ -1,0 +1,37 @@
+%script{src: "//maps.google.com/maps/api/js?v=3.13&sensor=false&libraries=geometry", type: "text/javascript"}
+%script{src: "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", type: "text/javascript"}
+= content_for :title, "Location"
+.container.well
+  %h1.center Selected Location
+  %p.indexcontainer2
+    %strong Address
+    = @location.address
+  %p.indexcontainer2
+    %strong Latitude
+    = @location.latitude
+  %p.indexcontainer2
+    %strong Longitude
+    = @location.longitude
+  %p.indexcontainer2
+    %strong Locations Nearby
+  %div{style: "margin-bottom:100px;"}  
+    %ul
+    - @location.nearbys(10).each do |location|
+      %li.indexcontainer2
+        = link_to location.address, location
+        (#{location.distance.round(2)} miles)
+  %div{style: "width: 800px;"}
+  #map{style: "width: 800px; height: 400px;"}      
+  
+  %p 
+    |#{link_to "Edit", edit_location_path(@location)}|
+    |#{link_to "Destroy", @location, :confirm => 'Are you sure?', :method => :delete}|
+    |#{link_to "View All", locations_path}|
+:javascript
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  markers = handler.addMarkers(#{raw @hash.to_json});
+  markers2 = handler.addMarkers(#{raw @hash2.to_json});
+    handler.bounds.extendWith(markers2);
+    handler.fitMapToBounds();
+  });

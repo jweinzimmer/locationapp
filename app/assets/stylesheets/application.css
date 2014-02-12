@@ -1,0 +1,85 @@
+/*
+*= require_self
+*= require_tree
+*/
+
+#user_password, #user_last_name, #user_first_name{
+	width: 180px;
+	margin-left: 20px;
+}
+#user_email{
+	width: 180px;
+	margin-left: 50px;
+}
+
+#user_password_confirmation{
+	width:180px;
+	margin-left: 20px;
+}
+.underlin{
+	text-decoration: underline;
+	font-size: 20px;
+
+}
+#map{
+
+	margin-left: 180px;
+}
+#label_location{
+	margin-left: 400px;
+}
+.center{
+	text-align: center;
+}
+#marinman{
+float:left;
+margin-left: 200px;
+margin-right: 160px;
+font-size: 20px;
+
+
+}
+.indextd{
+	padding-bottom: 25px;
+}
+.indexcontainer2{
+
+	margin-left: 500px;
+}
+.indexcontainer3{
+
+	margin-left: 300px;
+
+}
+.indexcontainer4{
+margin-left: 25%;
+margin-bottom: 100px;
+
+}
+.indexcontainer5{
+margin-left: 180px;
+margin-bottom: 100px;
+
+}
+.indexcontainer
+{
+
+	margin-left: 250px;
+}
+
+.addresstx{
+
+	background-color: red;
+}
+.wrapper{
+	text-align: center;
+}
+#search
+{
+
+	width:74.5%;
+	margin-left:135px;
+}
+.pdiddy{
+	margin-left:135px;
+}

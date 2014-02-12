@@ -1,0 +1,5 @@
+= content_for :title, "Edit Location"
+= render 'form'
+%p.pdiddy
+  |#{link_to "Show", @location}|
+  |#{link_to "View All", locations_path}|
